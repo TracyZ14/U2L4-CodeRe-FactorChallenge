@@ -2,10 +2,6 @@ public class TipCalculator {
     private double bill;
     private double tipPercentage;
     private double numberOfPeople;
-    private double totalTipAmount;
-    private double totalBill;
-    private double tipPerPerson;
-    private double totalPerPerson;
 
     public TipCalculator(double bill, double tipPercentage, double numberOfPeople) {
         this.bill = bill;
@@ -13,31 +9,31 @@ public class TipCalculator {
         this.numberOfPeople = numberOfPeople;
     }
 
-    public double calculateTotalTipAmount(double TipCalculator) {
-        double totalTipAmount = bill * (1 + (tipPercentage / 100));
+    public double calculateTotalTipAmount() {
+        double totalTipAmount = bill * (tipPercentage / 100);
         return totalTipAmount;
     }
 
-    public double calculateTotalBill(double TipCalculator) {
+    public double calculateTotalBill(double totalTipAmount) {
         double totalBill = bill + totalTipAmount;
         return totalBill;
     }
 
-    public double calculateTipPerPerson(double TipCalculator) {
+    public double calculateTipPerPerson(double totalTipAmount) {
         double tipPerPerson = totalTipAmount / numberOfPeople;
         return tipPerPerson;
     }
 
-    public double calculateTotalPerPerson(double TipCalculator) {
+    public double calculateTotalPerPerson(double totalBill) {
         double totalPerPerson = totalBill / numberOfPeople;
         return totalPerPerson;
     }
 
-    public void printCalculationsInfo()
+    public void printCalculationsInfo(double calculateTotalTipAmount, double calculateTotalBill, double calculateTipPerPerson, double calculateTotalPerPerson)
     {
-        System.out.println("Total tip amount: $" + (Math.ceil(totalTipAmount * 100) / 100));
-        System.out.println("Total bill: $" + (Math.ceil(totalBill * 100) / 100));
-        System.out.println("Tip per person: $" + (Math.ceil(tipPerPerson * 100) / 100));
-        System.out.println("Total per person: $" + (Math.ceil(totalPerPerson * 100) / 100));
+        System.out.println("Total tip amount: $" + (Math.ceil(calculateTotalTipAmount * 100) / 100));
+        System.out.println("Total bill: $" + (Math.ceil(calculateTotalBill * 100) / 100));
+        System.out.println("Tip per person: $" + (Math.ceil(calculateTipPerPerson * 100) / 100));
+        System.out.println("Total per person: $" + (Math.ceil(calculateTotalPerPerson * 100) / 100));
     }
 }
